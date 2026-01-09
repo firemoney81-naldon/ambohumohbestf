@@ -1,23 +1,539 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
+
+    <!-- Schema.org JSON-LD (WebPage for informational content) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "갱신보험 완벽 가이드",
+      "description": "2026년 최신 갱신보험 정보를 분석합니다. 실비보험, 암보험, 종신보험 갱신형의 장단점을 비교하고, 보험료 인상률 계산법, 저렴한 가입 방법, 내돈내산 후기, 추천 순위 등을 전문가 관점에서 상세히 알려드립니다.",
+      "url": "https://www.renewalinsurance-guide.com",
+      "publisher": {
+        "@type": "Organization",
+        "name": "보험 정보 센터",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.renewalinsurance-guide.com/logo.png"
+        }
+      },
+      "datePublished": "2026-01-01",
+      "dateModified": "2026-01-15",
+      "inLanguage": "ko-KR"
+    }
+    </script>
+
+    <style>
+      /* --- Global Reset and Typography --- */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: 'Noto Sans KR', sans-serif;
+        line-height: 1.8;
+        color: #333;
+        background-color: #f4f7f9; /* Soft light background */
+      }
+      a {
+        color: #0d47a1; /* Professional blue link */
+        text-decoration: none;
+        transition: color 0.3s ease, text-decoration 0.3s ease;
+      }
+      a:hover, a:focus {
+        text-decoration: underline;
+        color: #1a73e8;
+      }
+      /* --- Header and Navigation --- */
+      header {
+        background-color: #ffffff;
+        border-bottom: 2px solid #e0e0e0;
+        padding: 20px 15px;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      }
+      header h1 {
+        font-size: 2rem;
+        color: #0d47a1;
+        text-align: center;
+        margin-bottom: 15px;
+      }
+      nav ul {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+      nav ul li a {
+        color: #555;
+        font-size: 1rem;
+        font-weight: 600;
+        padding: 8px 15px;
+        border-radius: 20px;
+        background-color: #f0f4f7; /* Soft background for navigation links */
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+      nav ul li a:hover {
+        background-color: #e0f7fa;
+        color: #0d47a1;
+      }
+
+      /* --- Main Content Layout --- */
+      main {
+        max-width: 1000px;
+        margin: 40px auto;
+        padding: 0 20px;
+      }
+      section {
+        background: white;
+        padding: 30px;
+        margin-bottom: 30px;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      }
+      h2 {
+        color: #0d47a1;
+        margin-bottom: 20px;
+        font-size: 2rem;
+        border-bottom: 3px solid #e0f7fa;
+        padding-bottom: 10px;
+        position: relative;
+      }
+      h3 {
+        color: #2e7d32; /* Trustworthy green */
+        font-size: 1.5rem;
+        margin-top: 25px;
+        margin-bottom: 15px;
+        border-left: 4px solid #2e7d32;
+        padding-left: 10px;
+      }
+      p {
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+      }
+
+      /* --- Keyword List Styling --- */
+      .keywords-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 15px;
+        margin-bottom: 20px;
+      }
+      .keyword-tag {
+        background-color: #e3f2fd; /* Light blue tag background */
+        color: #0d47a1;
+        padding: 8px 16px;
+        border-radius: 25px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        border: 1px solid #c8e6c9;
+        transition: background-color 0.3s ease;
+      }
+      .keyword-tag:hover {
+        background-color: #bbdefb;
+      }
+
+      /* --- Data Presentation (Graph/Table) --- */
+      .data-visual {
+        margin: 30px 0;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+        border: 1px solid #eee;
+      }
+      .data-visual h4 {
+        color: #333;
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+        text-align: center;
+      }
+      /* Comparison Table */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        font-size: 1rem;
+      }
+      th, td {
+        border: 1px solid #ddd;
+        padding: 12px;
+        text-align: center;
+      }
+      th {
+        background-color: #e0f7fa; /* Light teal for headers */
+        color: #0d47a1;
+        font-weight: 700;
+      }
+      td strong {
+        font-weight: 700;
+        color: #d32f2f; /* Highlight important points in red */
+      }
+      /* Placeholder for graph visual */
+      .graph-placeholder {
+        height: 250px;
+        background-color: #e8f5e9; /* Light green for health/growth theme */
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #666;
+        font-size: 1.1rem;
+        border: 1px dashed #a5d6a7;
+      }
+
+      /* --- CTA Button --- */
+      .cta-button {
+        display: inline-block;
+        background-color: #2e7d32; /* Primary action color (Green) */
+        color: white;
+        padding: 16px 32px;
+        font-size: 1.2rem;
+        font-weight: 700;
+        border-radius: 30px;
+        text-align: center;
+        margin-top: 20px;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        text-decoration: none;
+        box-shadow: 0 4px 10px rgba(46, 125, 50, 0.3);
+      }
+      .cta-button:hover {
+        background-color: #1b5e20;
+        transform: translateY(-2px);
+      }
+
+      /* --- External Link Styling --- */
+      .external-link {
+        color: #4CAF50; /* Green color for reliability */
+        font-weight: 600;
+      }
+
+      /* --- Interactive Elements (Input Forms) --- */
+      .input-group {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+      }
+      label {
+        font-weight: 600;
+        margin-bottom: 8px;
+        color: #555;
+      }
+      input[type="text"], input[type="number"], select {
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 1rem;
+        width: 100%;
+      }
+      textarea {
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        font-size: 1rem;
+        width: 100%;
+        min-height: 100px;
+        resize: vertical;
+      }
+      .form-actions {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+      }
+
+      /* --- Footer --- */
+      footer {
+        text-align: center;
+        padding: 30px 10px;
+        background-color: #0d47a1; /* Dark professional blue footer */
+        color: white;
+        font-size: 0.9rem;
+        margin-top: 50px;
+      }
+      footer address {
+        font-style: normal;
+        margin-top: 10px;
+      }
+
+      /* --- Responsive adjustments --- */
+      @media (max-width: 768px) {
+        main {
+          margin: 20px auto;
+          padding: 0 15px;
+        }
+        section {
+          padding: 20px;
+        }
+        h1 {
+          font-size: 1.8rem;
+        }
+        h2 {
+          font-size: 1.6rem;
+        }
+        p {
+          font-size: 1rem;
+        }
+        nav ul {
+          gap: 10px;
+        }
+      }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>갱신보험 완벽 가이드</h1>
+        <nav aria-label="주요 메뉴">
+            <ul>
+                <li><a href="#definition">갱신보험 정의</a></li>
+                <li><a href="#pros-cons">장단점 비교</a></li>
+                <li><a href="#renewal-vs-nonrenewal">갱신형 vs 비갱신형</a></li>
+                <li><a href="#premium-increase">보험료 인상 분석</a></li>
+                <li><a href="#guide">현명한 가이드라인</a></li>
+                <li><a href="#calculator">보험료 예상 계산기</a></li>
+                <li><a href="#review">후기 및 추천</a></li>
+            </ul>
+        </nav>
+    </header>
     <main>
-      <h1>Home page</h1>
+        <!-- Section 1: Introduction and Definition (Core Keyword: 갱신보험) -->
+        <section id="definition">
+            <h2>갱신보험이란 무엇인가? 현명한 선택을 위한 첫걸음</h2>
+            <p><strong>갱신보험</strong>은 일정 기간(주로 1년, 3년, 5년, 10년)마다 계약을 갱신하며 보험료가 변동되는 상품입니다. 갱신 시점마다 피보험자의 나이와 손해율(보험금 지급액)이 반영되어 보험료가 인상되는 구조를 가지고 있습니다. 2026년 현재, 많은 사람들이 실비보험과 종신보험의 갱신 시기가 다가오면서 '갱신보험료'에 대한 고민을 하고 있습니다. 특히 고령화 시대에 접어들면서 갱신보험의 장단점을 명확히 파악하는 것이 중요해졌습니다.</p>
+            <p>갱신보험은 초기 보험료가 <strong>저렴한곳</strong>이 많다는 장점이 있지만, 나이가 들수록 보험료가 가파르게 상승할 수 있다는 <strong>단점</strong>이 있습니다. 이 글에서는 갱신보험의 모든 것을 분석하여 '얼마나 오를까?', '나에게 맞는 갱신보험은 무엇일까?'에 대한 해답을 제시합니다. </p>
+
+            <h3>갱신형 보험의 주요 특징 및 대상</h3>
+            <p>갱신보험은 초기 보험료가 상대적으로 저렴하기 때문에, 보험 가입 초기에는 부담이 적습니다. 따라서 젊은 연령층이나 일정 기간만 보험 혜택을 받고자 하는 분들에게 적합할 수 있습니다. 예를 들어, 사회 초년생이 갱신형 실비보험에 가입하는 경우가 많습니다. 그러나 갱신형 보험은 보장 기간이 길어질수록 보험료 인상 폭이 커져서 총 납입 보험료가 비갱신형보다 높아질 수 있다는 점을 반드시 고려해야 합니다.</p>
+            <div class="keywords-list" aria-label="주요 키워드 목록">
+                <span class="keyword-tag">갱신보험 정의</span>
+                <span class="keyword-tag">갱신보험료 인상률</span>
+                <span class="keyword-tag">갱신형 보험 장점 단점</span>
+                <span class="keyword-tag">실비보험 갱신</span>
+                <span class="keyword-tag">보험료 얼마나 오를까</span>
+                <span class="keyword-tag">보험 갱신 후회</span>
+            </div>
+        </section>
+
+        <!-- Section 2: Renewal vs. Non-renewal Comparison (Core Keyword: 갱신형 비갱신형 차이) -->
+        <section id="renewal-vs-nonrenewal">
+            <h2>갱신형 vs 비갱신형 차이점 완벽 비교 (갱신보험료 분석)</h2>
+            <p>갱신보험을 이해하는 데 있어 가장 중요한 핵심은 '비갱신형' 상품과의 비교입니다. 갱신형과 비갱신형은 보험료 납입 방식과 총 납입 금액에서 큰 차이를 보이며, 이는 장기적인 관점에서 재정 계획에 막대한 영향을 미칩니다.</p>
+
+            <h3>핵심 비교 테이블: 갱신형 vs 비갱신형</h3>
+            <div class="data-visual">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>비교 항목</th>
+                            <th>갱신형 (Renewal)</th>
+                            <th>비갱신형 (Non-renewal)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>초기 보험료</strong></td>
+                            <td>매우 저렴함 (<strong>싼곳</strong> 많음)</td>
+                            <td>상대적으로 비쌈</td>
+                        </tr>
+                        <tr>
+                            <td><strong>보험료 변동</strong></td>
+                            <td>일정 주기마다 갱신(인상)</td>
+                            <td>납입 기간 내내 일정함</td>
+                        </tr>
+                        <tr>
+                            <td><strong>총 납입 보험료 (장기)</strong></td>
+                            <td>갱신 시점에 따라 인상되어 총액이 높을 수 있음</td>
+                            <td>총액이 확정되어 예측 가능</td>
+                        </tr>
+                        <tr>
+                            <td><strong>가입 연령 적합성</strong></td>
+                            <td>젊은 연령층, 단기 보장 희망자</td>
+                            <td>장기 보장 희망자, 노후 대비자</td>
+                        </tr>
+                        <tr>
+                            <td><strong>예상 가능한 시나리오</strong></td>
+                            <td>초기 부담 적지만 노후에 <strong>보험료 폭탄</strong> 위험</td>
+                            <td>초기 부담 크지만 노후 재정 안정성 높음</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>위 표에서 보듯이, 갱신보험의 최대 단점은 '불확실성'입니다. 갱신 시점에 보험료가 얼마나 오를지 <strong>예상</strong>하기 어렵습니다. 반면 비갱신형은 초기 보험료는 높지만, 총 납입 금액이 정해져 있어 장기적으로 안정적입니다.</p>
+
+            <h3>갱신형 보험료 인상률 분석: 2026년 동향</h3>
+            <p>2026년 보험 시장 동향에 따르면, 실비보험의 손해율 증가로 인해 갱신보험료 인상률이 높아지고 있습니다. 특히 고령층의 의료 이용률 증가로 인해 갱신형 실비보험의 인상 폭이 커지고 있습니다. 갱신보험 가입 시, 단순한 초기 <strong>금액</strong> 비교보다는 갱신 주기를 고려한 장기적인 비용 분석이 필수입니다.</p>
+            <div class="keywords-list" aria-label="연관 검색어 목록">
+                <span class="keyword-tag">갱신보험료 평균</span>
+                <span class="keyword-tag">갱신형 비갱신형 장단점</span>
+                <span class="keyword-tag">실비보험 갱신 주가</span>
+                <span class="keyword-tag">보험료 인상률</span>
+                <span class="keyword-tag">갱신보험 저렴한곳</span>
+                <span class="keyword-tag">갱신보험료 얼마</span>
+            </div>
+        </section>
+
+        <!-- Section 3: Detailed Content on Pros, Cons, and Decision Making (Keywords: 장점, 단점, 차이점) -->
+        <section id="pros-cons">
+            <h2>갱신보험의 장단점 상세 분석: 현명한 선택을 위한 기준</h2>
+            <p>갱신보험을 현명하게 선택하려면 단순히 <strong>저렴한곳</strong>을 찾는 것을 넘어, 갱신형의 본질적인 <strong>장점</strong>과 <strong>단점</strong>을 명확히 이해해야 합니다.</p>
+
+            <h3>장점: 초기 비용 절감과 유연성</h3>
+            <ul>
+                <li><strong>낮은 초기 보험료:</strong> 갱신보험의 가장 큰 장점은 초기 보험료가 비갱신형에 비해 현저히 낮다는 것입니다. 사회 초년생이나 단기적인 재정 부담을 줄이고 싶은 경우 유리합니다.</li>
+                <li><strong>손해율에 따른 보험료 조정:</strong> 갱신 시점에 보험료가 재산정되므로, 보험사가 보험료를 과도하게 책정했다면 갱신 시점에서 보험료가 하락할 수도 있습니다. (실제로 흔치 않지만 이론적으로 가능합니다.)</li>
+                <li><strong>보험 상품 변화에 대한 유연한 대처:</strong> 새로운 의료 기술이 개발되거나 보장 내용이 변경될 때, 갱신 시점에 새로운 상품으로 갈아타기 쉽습니다.</li>
+            </ul>
+
+            <h3>단점: 예측 불가능한 보험료 폭탄</h3>
+            <ul>
+                <li><strong>보험료 인상 위험:</strong> 갱신형 보험료는 나이가 많아질수록 기하급수적으로 증가할 수 있습니다. 갱신 시점에 '<strong>보험료 폭탄</strong>'을 맞을 수 있다는 것이 가장 큰 <strong>단점</strong>입니다.</li>
+                <li><strong>노후 재정 불안정:</strong> 은퇴 후 소득이 줄어드는 시기에 보험료가 급격히 인상되면, 보험 유지가 어려워지거나 해지하는 상황이 발생할 수 있습니다.</li>
+                <li><strong>갱신 기간의 강제성:</strong> 갱신을 원치 않아도 보장을 유지하려면 강제로 보험료를 납입해야 합니다.</li>
+            </ul>
+
+            <div class="data-visual">
+                <h4>그래프: 갱신형 vs 비갱신형 보험료 추이 예상 (가상 시뮬레이션)</h4>
+                <div class="graph-placeholder">
+                    <span>(데이터 시각화: 갱신형(빨간색 선)은 초기 낮지만 50세 이후 급격히 상승, 비갱신형(파란색 선)은 일정하게 유지)</span>
+                </div>
+            </div>
+            <p>갱신보험 가입 전에는 반드시 장기적인 관점에서 <strong>갱신보험료 계산</strong>을 해보고, 총 납입 예상 금액을 비갱신형과 비교하는 것이 필수적입니다. 특히 실비보험의 경우, 갱신형으로만 가입이 가능해지면서 갱신 주기를 이해하는 것이 더욱 중요해졌습니다.</p>
+        </section>
+
+        <!-- Section 4: Practical Guide and Optimization Strategy (Keywords: 가입, 순위, 추천, 내돈내산 후기) -->
+        <section id="guide">
+            <h2>갱신보험 현명하게 가입하고 관리하는 노하우 (2026년 가이드)</h2>
+            <p>갱신보험을 피할 수 없는 실비보험 가입자나, 갱신형 상품이 유리한 특정 상황의 가입자들을 위해 현명한 <strong>가입</strong> 및 관리 방법을 제안합니다.</p>
+
+            <h3>1. 가입 시점과 갱신 주기의 중요성</h3>
+            <p>갱신보험은 가입 시점이 빠를수록 유리합니다. 젊을 때 낮은 보험료로 시작할 수 있기 때문입니다. 갱신 주기가 긴 상품(예: 10년 갱신)을 선택하여 단기적인 보험료 인상 부담을 줄이는 것도 방법입니다. 2026년 현재 시장에서는 갱신 주기가 다양하게 출시되고 있으므로, 자신에게 맞는 갱신 주기를 선택하는 것이 중요합니다.</p>
+
+            <h3>2. 갱신보험료 절감 전략: 중복 보장 피하기</h3>
+            <p>갱신보험료 절감의 핵심은 불필요한 보장을 줄이는 것입니다. 특히 갱신형 실비보험의 경우, 중복 보장이 되는지 확인하고 불필요한 특약은 과감하게 삭제하여 <strong>보험료 절약</strong>을 해야 합니다. 많은 사람들이 모르는 <strong>갱신보험료 팁</strong> 중 하나는 '자동이체 할인'이나 '건강 등급 할인' 등 부가적인 할인 혜택을 활용하는 것입니다.</p>
+
+            <h3>3. 갱신보험 추천 순위 및 내돈내산 후기 활용법</h3>
+            <p>온라인에서 <strong>갱신보험 추천 순위</strong>를 검색할 때, 단순히 <strong>싼곳</strong> 위주로만 보지 말고, 보험사의 재무 건전성 및 갱신 시점의 인상률 추이를 함께 고려해야 합니다. <strong>내돈내산 후기</strong>를 참고할 때는 개별적인 경험을 일반화하지 말고, 다양한 후기를 종합적으로 분석하는 것이 중요합니다.</p>
+            <div class="keywords-list" aria-label="추천 키워드 목록">
+                <span class="keyword-tag">갱신보험 추천</span>
+                <span class="keyword-tag">갱신보험 순위</span>
+                <span class="keyword-tag">내돈내산 후기</span>
+                <span class="keyword-tag">갱신보험료 절약법</span>
+                <span class="keyword-tag">가입 노하우</span>
+                <span class="keyword-tag">갱신보험료 비교</span>
+                <span class="keyword-tag">2026년 보험 가이드</span>
+            </div>
+        </section>
+
+        <!-- Section 5: External Links for Credibility and In-depth Information -->
+        <section id="external-info">
+            <h2>공신력 있는 외부 자료 및 관련 키워드</h2>
+            <p>갱신보험에 대한 정확한 정보는 금융감독원이나 관련 기관의 자료를 통해 확인할 수 있습니다. 다음은 신뢰할 수 있는 외부 링크와 함께 많이 찾는 연관 키워드입니다.</p>
+            <ul>
+                <li><strong>금융감독원 금융소비자정보 포털 파인:</strong> <a href="https://www.fss.or.kr/" target="_blank" class="external-link">보험 상품 비교 공시</a> - 갱신형 보험료 비교 및 상품 정보 확인 가능</li>
+                <li><strong>생명보험협회/손해보험협회:</strong> <a href="https://www.klia.or.kr/" target="_blank" class="external-link">보험 가이드 및 소비자 보호 정보</a> - 갱신보험 관련 약관 및 유의사항 확인</li>
+                <li><strong>나무위키:</strong> <a href="https://namu.wiki/w/%EB%B3%B4%ED%97%98" target="_blank" class="external-link">보험 (Insurance) 항목</a> - 갱신형과 비갱신형에 대한 일반적인 설명과 개념 이해에 도움</li>
+                <li><strong>정부 정책 브리핑:</strong> <a href="https://www.korea.kr/" target="_blank" class="external-link">실손보험 갱신 관련 정부 정책</a> - 갱신형 실비보험의 갱신 주기 및 제도 변경 사항 확인</li>
+            </ul>
+            <p><strong>함께 많이 찾는 키워드:</strong> 갱신보험료 평균 인상률, 실비보험 갱신 거절, 갱신보험 만기 시점, 갱신보험 리모델링, 갱신보험료 얼마나 오를까, 갱신형 보험 장단점 차이점.</p>
+        </section>
+
+        <!-- Section 6: User Engagement - Interactive Calculator (Increases Dwell Time) -->
+        <section id="calculator">
+            <h2>나의 갱신보험료 예상 계산기</h2>
+            <p>갱신보험료는 개인의 나이, 가입 시점, 갱신 주기 등에 따라 크게 달라집니다. 아래 간단한 정보를 입력하여 갱신 시 예상되는 보험료 인상률을 예측해 보세요. (실제 결과와 차이가 있을 수 있으며, 정확한 견적은 전문가 상담을 통해 확인하세요.)</p>
+            <form id="renewal-calculator">
+                <div class="input-group">
+                    <label for="current_age">현재 나이 (만 나이)</label>
+                    <input type="number" id="current_age" name="current_age" min="1" required placeholder="예: 35">
+                </div>
+                <div class="input-group">
+                    <label for="renewal_cycle">갱신 주기 (년)</label>
+                    <select id="renewal_cycle" name="renewal_cycle" required>
+                        <option value="1">1년</option>
+                        <option value="3">3년</option>
+                        <option value="5">5년</option>
+                        <option value="10">10년</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="initial_premium">현재 납입 보험료 (월, 원)</label>
+                    <input type="number" id="initial_premium" name="initial_premium" min="1000" required placeholder="예: 30000">
+                </div>
+                <div class="input-group">
+                    <label for="policy_type">보험 상품 유형</label>
+                    <select id="policy_type" name="policy_type" required>
+                        <option value="health">실비보험 (의료실비)</option>
+                        <option value="term">종신보험</option>
+                        <option value="cancer">암보험</option>
+                    </select>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="cta-button" onclick="calculateRenewal()">예상 보험료 계산하기</button>
+                </div>
+                <div id="result_area" style="margin-top: 20px; text-align: center; font-size: 1.1rem; font-weight: bold;"></div>
+            </form>
+            <script>
+                // Non-functional simulation logic for user engagement
+                function calculateRenewal() {
+                    const age = parseInt(document.getElementById('current_age').value);
+                    const premium = parseInt(document.getElementById('initial_premium').value);
+                    const cycle = parseInt(document.getElementById('renewal_cycle').value);
+                    const type = document.getElementById('policy_type').value;
+
+                    if (isNaN(age) || isNaN(premium) || !age || !premium) {
+                        document.getElementById('result_area').innerHTML = "정보를 정확히 입력해주세요.";
+                        return;
+                    }
+
+                    // Simple simulation based on typical increase factors
+                    let baseIncreaseRate = 0.05; // Base annual increase
+                    if (age > 40) baseIncreaseRate += 0.03;
+                    if (age > 60) baseIncreaseRate += 0.05;
+
+                    let nextPremiumEstimate = premium * (1 + baseIncreaseRate * cycle);
+                    let increasePercentage = ((nextPremiumEstimate / premium) - 1) * 100;
+
+                    let nextRenewalAge = age + cycle;
+
+                    document.getElementById('result_area').innerHTML = `
+                        다음 갱신 시점(만 ${nextRenewalAge}세) 예상 보험료: ${nextPremiumEstimate.toFixed(0)}원 (월)<br>
+                        예상 인상률: ${increasePercentage.toFixed(1)}%
+                    `;
+                }
+            </script>
+        </section>
+
+        <!-- Section 7: Final CTA and Contact Form (Keywords: 문의하기, 상담) -->
+        <section id="contact">
+            <h2>갱신보험 상담 및 맞춤 견적 문의하기</h2>
+            <p>개인의 건강 상태와 재정 상황에 따라 갱신보험의 적합성은 달라집니다. <strong>갱신보험</strong>에 대해 더 궁금한 점이 있거나, <strong>갱신형 vs 비갱신형 차이점</strong>을 비교하여 나에게 맞는 상품을 찾고 싶다면 전문가의 도움을 받으세요.</p>
+            <form id="contact-form">
+                <div class="input-group">
+                    <label for="name">이름</label>
+                    <input type="text" id="name" name="name" required placeholder="이름을 입력해주세요">
+                </div>
+                <div class="input-group">
+                    <label for="contact-number">연락처</label>
+                    <input type="text" id="contact-number" name="contact-number" required placeholder="휴대폰 번호 (예: 010-1234-5678)">
+                </div>
+                <div class="input-group">
+                    <label for="inquiry-details">상담 희망 내용</label>
+                    <textarea id="inquiry-details" name="inquiry-details" required placeholder="궁금한 점이나 상담 받고 싶은 내용을 상세히 적어주세요. 예: 실비보험 갱신료가 너무 올라서 비갱신형으로 전환 가능한지 문의합니다."></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="cta-button">무료 상담 신청하기</button>
+                </div>
+            </form>
+            <p style="text-align: center; margin-top: 20px; color: #555;">개인정보는 상담 목적으로만 사용되며 안전하게 보호됩니다.</p>
+        </section>
     </main>
-  </body>
-</html>
+    <footer>
+        <p>Copyright &copy; 2026 갱신보험 완벽 가이드. All rights reserved.</p>
+        <address>
+            이메일: info@renewalinsurance-guide.com<br>
+            문의전화: <a href="tel:02-123-4567">02-123-4567</a>
+        </address>
+    </footer>
+
+  
